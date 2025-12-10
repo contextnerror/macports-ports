@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                py-setuptools_dynamic_dependencies
+version             1.0.0
+revision            0
+
+categories-append   devel
+platforms           {darwin any}
+supported_archs     noarch
+license             BSD
+maintainers         nomaintainer
+
+description         A setuptools plugin that allows for dependencies that are \
+                    dependent on the package's version number.
+long_description    {*}${description}
+
+homepage            https://github.com/beeware/setuptools_dynamic_dependencies
+
+checksums           rmd160  1446e6a37d456250d843d91dd5d9a56c0c8a2d93 \
+                    sha256  4ee2566acbd83822efee73e0bc865234815359ac54ef851fa751033a67ad532f \
+                    size    7233
+
+python.versions     312
+
+if {${name} ne ${subport}} {
+    
+    patchfiles-append \
+                    patch-pyproject.diff
+
+    depends_lib-append \
+                    port:py${python.version}-setuptools \
+                    port:py${python.version}-setuptools_scm
+}
