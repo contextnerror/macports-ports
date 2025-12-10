@@ -1,0 +1,34 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                py-maestral-cocoa
+python.rootname     maestral_cocoa
+version             1.9.6
+revision            0
+
+platforms           {darwin any}
+supported_archs     noarch
+license             MIT
+maintainers         nomaintainer
+
+description         A Cocoa user interface for the Maestral daemon
+long_description    {*}${description}
+
+homepage            https://github.com/samschott/maestral-cocoa
+
+checksums           rmd160  7642c6e09f99bf52cce1b6fe9ca3649cfee7c16b \
+                    sha256  cdba5e8549390ebc11b4f6665b433ce29ac4ab956c2a312f09f429a6de9ee0a1 \
+                    size    1152225
+
+python.versions     312
+
+if {${name} ne ${subport}} {
+
+    depends_lib-append \
+                    port:py${python.version}-click \
+                    port:py${python.version}-markdown2 \
+                    port:py${python.version}-rubicon-objc \
+                    port:py${python.version}-toga-cocoa
+}
