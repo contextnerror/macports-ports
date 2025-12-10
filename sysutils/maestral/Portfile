@@ -41,11 +41,11 @@ if {${os.platform} eq "darwin" && ${os.major} < 11} {
                     port:py${python.version}-sdnotify \
                     port:py${python.version}-sqlalchemy
 } else {
-    github.setup    samschott maestral 1.9.4 v
+    github.setup    samschott maestral 1.9.6 v
     revision        0
-    checksums       rmd160  a9d295c472694a4120573854ee7d2fe35d82a533 \
-                    sha256  bb03ff59418a35786ef1c5a5ac0c66bb67390fdab8ebee011f1f8ba151677789 \
-                    size    8126850
+    checksums       rmd160  ccd31de0dba3671c67ca0b04e4ba0a424f62f992 \
+                    sha256  eed85515b7b3f85b0ea1c9f026bf9f50aa410ff80dbfedf0b315cc55f59aa3e6 \
+                    size    8129919
     github.tarball_from archive
 
     python.default_version 312
@@ -53,7 +53,8 @@ if {${os.platform} eq "darwin" && ${os.major} < 11} {
     depends_lib-append \
                     port:py${python.version}-desktop-notifier \
                     port:py${python.version}-rich \
-                    port:py${python.version}-typing_extensions
+                    port:py${python.version}-typing_extensions \
+                    port:py${python.version}-xattr
 }
 
 depends_build-append \
